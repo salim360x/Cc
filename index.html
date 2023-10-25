@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <title>صفحة بخلفية فيديو</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- الأسلوب لوضع الزر وتنسيق الخلفية -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* أسلوب تنسيق الزر */
+        .enter-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="1.mp4" type="video/mp4">
+        يتعذر تشغيل الفيديو.
+    </video>
+    <div class="content">
+        <h1>مرحبًا بك في صفحتنا</h1>
+        <p>ستجد روابط جميع المجموعات والصفحات التي تنشر الانمي</p>
+        <!-- زر الدخول كرابط إلى الصفحة الهدف -->
+        <a class="enter-button" href="A1.html">دخول</a>
+    </div>
+    
+    <!-- إضافة الرسالة الصوتية -->
+    <audio id="welcomeAudio">
+        <source src="welcome.mp3" type="audio/mpeg">
+        تعذر تشغيل الصوت.
+    </audio>
+
+    <!-- إضافة الكود الخاص بتشغيل الرسالة الصوتية -->
+    <script>
+        // تعريف دالة لتشغيل الرسالة الصوتية
+        function playWelcomeAudio() {
+            var audio = document.getElementById("welcomeAudio");
+            audio.play();
+        }
+
+        // العثور على الزر "دخول" باستخدام معرفه وتعيين التفاعل معه
+        var enterButton = document.querySelector(".enter-button");
+        enterButton.addEventListener("click", playWelcomeAudio);
+    </script>
+</body>
+</html>
